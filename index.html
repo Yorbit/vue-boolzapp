@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Boolzapp</title>
+</head>
+
+<body>
+    <main class="container" id="root">
+        <div class="row mt-4 mb-3 bord">
+            <section class="col-4 mx-0 px-0">
+                <div class="left">
+                    <section>
+                        <div class="content-user">
+                            <div class="d-flex align-items-center">
+                                <img class="user-avatar" src="./img/avatar_5.jpg" alt="Mio AVATAR">
+                                <h6 class="fw-bold px-3">MARCO</h6>
+                            </div>
+                            <div class="icons">
+                                <i class="fa-solid fa-circle-notch pe-2"></i>
+                                <i class="fa-solid fa-message pe-2"></i>
+                                <i class="fa-solid fa-ellipsis-vertical pe-2"></i>
+                            </div>
+                        </div>
+                        <div class="web-ring">
+                            <div class="bell">
+                                <i class="fa-solid fa-bell-slash"></i>
+                            </div>
+                            <div>
+                                <p class="px-3 mb-0 fw-semibold">Ricevi notifiche di nuovi messaggi</p>
+                                <a class="px-3 ring-line" href="#">Attiva notifiche desktop</a>
+                            </div>
+                        </div>
+                        <div class="find">
+                            <div class="input-group">
+                                <button class="input" @click="filterUser"><i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                                <input type="text" class="form-control px-3" placeholder="Cerca o inizia una nuova chat"
+                                    aria-label="" aria-describedby="button-addon1" v-model="find"
+                                    @keyUp.enter="filterUser">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="scroll-chat">
+                        <div class="chat-list" @click="selectAnotherChat(index)"
+                            :class="{'active': index === focusChat}" v-for="(chat, index) in users" v-if="chat.visible">
+                            <img class="user-avatar me-3" :src="'./img/avatar' + chat.avatar + '.jpg'" alt="">
+                            <div>
+                                {{ chat.name }}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+            <section class="col-8 mx-0 px-0">
+                <div class="focus-chat">
+                    <img class="user-avatar me-2" :src="'./img/avatar' + users[focusChat].avatar + '.jpg'" alt="">
+                    <div>
+                        {{ users[focusChat].name }}
+                        <p class="ring-line">Ultimo accesso oggi alle</p>
+                    </div>
+                    <div class="icon-inchat">
+                        <i class="fa-solid fa-magnifying-glass pe-2"></i>
+                        <i class="fa-solid fa-paperclip pe-2"></i>
+                        <i class="fa-solid fa-ellipsis-vertical pe-2"></i>
+                    </div>
+                </div>
+                <div class="chat-back">
+                </div>
+                <div class="message-zone">
+                    <div class="input-group">
+                        <span class="emoji"><i class="fa-regular fa-face-smile"></i></span>
+                        <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label=""
+                            v-model="newText" @keyUp.enter="insertNewMex(newText, focusChat)"
+                            aria-describedby="button-addon1">
+                        <span class="emoji"><i class="fa-solid fa-microphone"></i></span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+<script src="./script.js"></script>
+
+</html>
