@@ -71,7 +71,7 @@ const root = new Vue(
                         },
                         {
                             date: '15/07/2022 12:18:00',
-                            message: 'certo quello',
+                            message: 'Certo quello',
                             status: 'received'
                         }
                     ],

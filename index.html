@@ -78,17 +78,23 @@
                     </div>
                 </div>
                 <div class="chat-back">
-                </div>
-                <div class="message-zone">
-                    <div class="input-group">
-                        <span class="emoji"><i class="fa-regular fa-face-smile"></i></span>
-                        <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label=""
-                            v-model="newText" @keyUp.enter="insertNewMex(newText, focusChat)"
-                            aria-describedby="button-addon1">
-                        <span class="emoji"><i class="fa-solid fa-microphone"></i></span>
+                    <div v-for="(element, index) in users[focusChat].mex">
+                        <div class="col-6 position-relative"
+                            :class="{'mex_sent': element.status == 'sent', 'mex_receive': element.status == 'received'}">
+                            {{ element.message }}
+                        </div>
                     </div>
                 </div>
-            </section>
+        </div>
+        <div class="message-zone">
+            <div class="input-group">
+                <span class="emoji"><i class="fa-regular fa-face-smile"></i></span>
+                <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label=""
+                    v-model="newText" @keyUp.enter="insertNewMex(newText, focusChat)" aria-describedby="button-addon1">
+                <span class="emoji"><i class="fa-solid fa-microphone"></i></span>
+            </div>
+        </div>
+        </section>
         </div>
     </main>
 </body>
