@@ -127,6 +127,19 @@ const root = new Vue(
 
             },
 
+            messageCpu: function (activeIndex) {
+                const messageCpu = {
+                    date: dayjs().format('DD:MM:YYYY, HH:mm:ss'),
+                    message: 'OK',
+                    status: 'received'
+                }
+                this.users[activeIndex].mex.push(messageCpu);
+            },
+
+            timeRespondCpu: function (activeIndex) {
+                setTimeout(() => { this.messageCpu(activeIndex) }, 1000);
+            },
+
             filterUser: function () {
 
             },
