@@ -82,6 +82,7 @@
                         <div class="col-6 position-relative"
                             :class="{'mex_sent': element.status == 'sent', 'mex_receive': element.status == 'received'}">
                             {{ element.message }}
+                            <span class="hour">{{ element.date }}</span>
                         </div>
                     </div>
                 </div>

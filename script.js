@@ -99,6 +99,9 @@ const root = new Vue(
                     ],
                 },
             ],
+
+            newText: '',
+
         },
 
         methods:
@@ -106,6 +109,21 @@ const root = new Vue(
             selectAnotherChat: function (index) {
 
                 this.focusChat = index;
+
+            },
+
+            insertNewMex: function (messageText, activeIndex) {
+
+                const newMessage = {
+                    date: dayjs().format('DD:MM:YYYY, HH:mm:ss'),
+                    message: messageText,
+                    status: 'sent'
+                }
+                this.users[activeIndex].mex.push(newMessage);
+
+                this.newText = '';
+
+                this.timeRespondCpu(activeIndex);
 
             },
 
