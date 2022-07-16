@@ -102,6 +102,8 @@ const root = new Vue(
 
             newText: '',
 
+            searchUser: '',
+
         },
 
         methods:
@@ -142,7 +144,29 @@ const root = new Vue(
 
             filterUser: function () {
 
-            },
+                let index = 0
+
+                const inputUser = this.searchUser.toLowerCase();
+
+                while (index < this.users.length) {
+
+                    const userName = this.users[index].name.toLowerCase();
+
+                    if (!userName.includes(inputUser)) {
+
+                        this.users[index].visible = false;
+
+                    } else {
+
+                        this.users[index].visible = true;
+                    };
+
+                    index++
+
+                }
+
+                this.searchUser = '';
+            }
         }
     }
-);
+)
