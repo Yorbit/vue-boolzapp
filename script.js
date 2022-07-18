@@ -184,6 +184,11 @@ const root = new Vue(
 
             },
 
+            deleteSelectedMessage: function (index) {
+
+                this.users[this.focusChat].mex.splice(index, 1);
+
+            },
         }
     }
 )

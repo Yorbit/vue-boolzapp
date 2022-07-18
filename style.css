@@ -183,3 +183,11 @@ a {
     text-decoration: none;
     color: black;
 }
+
+.pos {
+    font-size: 15px;
+    color: dimgray;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}

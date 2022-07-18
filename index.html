@@ -59,7 +59,9 @@
                             <img class="user-avatar me-3" :src="'./img/avatar' + chat.avatar + '.jpg'" alt="">
                             <div>
                                 {{ chat.name }}
+                                <p class="ring-line">Ultimo messaggio inviato</p>
                             </div>
+                            <span class="pos">10/01/2020 15:50:00</span>
                         </div>
                     </section>
                 </div>
@@ -69,7 +71,7 @@
                     <img class="user-avatar me-2" :src="'./img/avatar' + users[focusChat].avatar + '.jpg'" alt="">
                     <div>
                         {{ users[focusChat].name }}
-                        <p class="ring-line">Ultimo accesso oggi alle</p>
+                        <p class="ring-line">Ultimo accesso oggi</p>
                     </div>
                     <div class="icon-inchat">
                         <i class="fa-solid fa-magnifying-glass pe-2"></i>
