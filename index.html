@@ -83,6 +83,12 @@
                             :class="{'mex_sent': element.status == 'sent', 'mex_receive': element.status == 'received'}">
                             {{ element.message }}
                             <span class="hour">{{ element.date }}</span>
+                            <span @click="dropMenu(index)" class="drop"><i class="fa-solid fa-angle-down"></i></span>
+                            <div class="drop_menu"
+                                :class="{ 'd-block': dropIconClicked == true && dropIconIndex == index }">
+                                <a class="d-block">Informazioni</a>
+                                <a class="d-block" @click="deleteSelectedMessage(index)">Elimina Messaggio</a>
+                            </div>
                         </div>
                     </div>
                 </div>

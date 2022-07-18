@@ -104,6 +104,10 @@ const root = new Vue(
 
             searchUser: '',
 
+            dropIconClicked: false,
+
+            dropIconIndex: 0,
+
         },
 
         methods:
@@ -111,6 +115,10 @@ const root = new Vue(
             selectAnotherChat: function (index) {
 
                 this.focusChat = index;
+
+                this.dropIconClicked = false;
+
+                this.dropIconIndex = 0;
 
             },
 
@@ -166,7 +174,16 @@ const root = new Vue(
                 }
 
                 this.searchUser = '';
-            }
+            },
+
+            dropMenu: function (index) {
+
+                this.dropIconIndex = index;
+
+                this.dropIconClicked = !this.dropIconClicked;
+
+            },
+
         }
     }
 )
