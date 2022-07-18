@@ -125,7 +125,7 @@ const root = new Vue(
             insertNewMex: function (messageText, activeIndex) {
 
                 const newMessage = {
-                    date: dayjs().format('DD:MM:YYYY, HH:mm:ss'),
+                    date: dayjs().format('DD:MM:YYYY HH:mm:ss'),
                     message: messageText,
                     status: 'sent'
                 }
@@ -139,7 +139,7 @@ const root = new Vue(
 
             messageCpu: function (activeIndex) {
                 const messageCpu = {
-                    date: dayjs().format('DD:MM:YYYY, HH:mm:ss'),
+                    date: dayjs().format('DD:MM:YYYY HH:mm:ss'),
                     message: 'OK',
                     status: 'received'
                 }
